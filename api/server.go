@@ -52,9 +52,13 @@ func (server *Server) setupRouter() {
 
 	// authRoutes.POST("/transfers", server.createTransfer)
 
+	// Accounts Apis
 	router.POST("/accounts", server.createAccount)
 	router.GET("/accounts/:id", server.getAccount)
 	router.GET("/accounts", server.listAccounts)
+
+	// Transfer Apis
+	router.POST("/transfers", server.createTransfer)
 
 	server.router = router
 }
