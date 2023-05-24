@@ -2,6 +2,8 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 	db "github.com/mehtabghani/simplebank/db/sqlc"
 	// "github.com/mehtabghani/simplebank/token"
 	// "github.com/mehtabghani/simplebank/util"
@@ -30,9 +32,10 @@ func NewServer(store db.Store) (*Server, error) {
 		// tokenMaker: tokenMaker,
 	}
 
-	// if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
-	// 	v.RegisterValidation("currency", validCurrency)
-	// }
+	// validator binding
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("currency", validCurrency)
+	}
 
 	server.setupRouter()
 	return server, nil
