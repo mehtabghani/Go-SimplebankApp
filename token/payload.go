@@ -47,7 +47,7 @@ func NewPayload(username string, duration time.Duration) (*Payload, error) {
 }
 
 // Valid checks if the token payload is valid or not
-func (payload *Payload) Validate() error {
+func (payload *Payload) Valid() error {
 	if time.Now().After(payload.ExpiresAt.Time) {
 		return ErrExpiredToken
 	}
