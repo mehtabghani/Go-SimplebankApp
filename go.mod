@@ -13,7 +13,6 @@ require (
 	github.com/o1egl/paseto v1.0.0
 	github.com/spf13/viper v1.15.0
 	github.com/stretchr/testify v1.8.2
-	github.com/techschool/simplebank v0.0.0-20230402121500-bdfe8e7aa022
 	golang.org/x/crypto v0.9.0
 	google.golang.org/grpc v1.52.0
 	google.golang.org/protobuf v1.30.0
@@ -31,7 +30,6 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
