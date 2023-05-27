@@ -7,7 +7,6 @@
 package pb
 
 import (
-	pb "github.com/techschool/simplebank/pb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -82,7 +81,7 @@ type LoginUserResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User                  *pb.User               `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	User                  *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	SessionId             string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	AccessToken           string                 `protobuf:"bytes,3,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
 	RefreshToken          string                 `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
@@ -122,7 +121,7 @@ func (*LoginUserResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_login_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *LoginUserResponse) GetUser() *pb.User {
+func (x *LoginUserResponse) GetUser() *User {
 	if x != nil {
 		return x.User
 	}
@@ -218,7 +217,7 @@ var file_rpc_login_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_rpc_login_user_proto_goTypes = []interface{}{
 	(*LoginUserRequest)(nil),      // 0: pb.LoginUserRequest
 	(*LoginUserResponse)(nil),     // 1: pb.LoginUserResponse
-	(*pb.User)(nil),               // 2: pb.User
+	(*User)(nil),                  // 2: pb.User
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_rpc_login_user_proto_depIdxs = []int32{
@@ -237,6 +236,7 @@ func file_rpc_login_user_proto_init() {
 	if File_rpc_login_user_proto != nil {
 		return
 	}
+	file_user_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_rpc_login_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LoginUserRequest); i {
