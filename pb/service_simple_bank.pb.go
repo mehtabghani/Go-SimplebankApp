@@ -7,7 +7,6 @@
 package pb
 
 import (
-	pb "github.com/techschool/simplebank/pb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -43,10 +42,10 @@ var file_service_simple_bank_proto_rawDesc = []byte{
 }
 
 var file_service_simple_bank_proto_goTypes = []interface{}{
-	(*pb.CreateUserRequest)(nil),  // 0: pb.CreateUserRequest
-	(*LoginUserRequest)(nil),      // 1: pb.LoginUserRequest
-	(*pb.CreateUserResponse)(nil), // 2: pb.CreateUserResponse
-	(*LoginUserResponse)(nil),     // 3: pb.LoginUserResponse
+	(*CreateUserRequest)(nil),  // 0: pb.CreateUserRequest
+	(*LoginUserRequest)(nil),   // 1: pb.LoginUserRequest
+	(*CreateUserResponse)(nil), // 2: pb.CreateUserResponse
+	(*LoginUserResponse)(nil),  // 3: pb.LoginUserResponse
 }
 var file_service_simple_bank_proto_depIdxs = []int32{
 	0, // 0: pb.SimpleBank.CreateUser:input_type -> pb.CreateUserRequest
@@ -65,6 +64,7 @@ func file_service_simple_bank_proto_init() {
 	if File_service_simple_bank_proto != nil {
 		return
 	}
+	file_rpc_create_user_proto_init()
 	file_rpc_login_user_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
