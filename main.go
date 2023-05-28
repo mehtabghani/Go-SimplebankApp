@@ -16,6 +16,7 @@ import (
 	"github.com/mehtabghani/simplebank/util"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"google.golang.org/protobuf/encoding/protojson"
 )
 
 func main() {
@@ -89,18 +90,18 @@ func runGatewayServer(config util.Config, store db.Store) {
 		log.Fatal("cannot create server")
 	}
 
-	// data in response is returning in camel case to turn it to your custom case enable this option
-	// jsonOption := runtime.WithMarshalerOption(runtime.MIMEWildcard, &runtime.JSONPb{
-	// 	MarshalOptions: protojson.MarshalOptions{
-	// 		UseProtoNames: true,
-	// 	},
-	// 	UnmarshalOptions: protojson.UnmarshalOptions{
-	// 		DiscardUnknown: true,
-	// 	},
-	// })
+	// data in REST apyresponse is returning in camel case to turn it to your custom case enable this option
+	jsonOption := runtime.WithMarshalerOption(runtime.MIMEWildcard, &runtime.JSONPb{
+		MarshalOptions: protojson.MarshalOptions{
+			UseProtoNames: true,
+		},
+		UnmarshalOptions: protojson.UnmarshalOptions{
+			DiscardUnknown: true,
+		},
+	})
 
-	// grpcMux := runtime.NewServeMux(jsonOption)
-	grpcMux := runtime.NewServeMux()
+	grpcMux := runtime.NewServeMux(jsonOption)
+	// grpcMux := runtime.NewServeMux()
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
