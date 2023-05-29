@@ -22,7 +22,7 @@ func GrpcLogger(
 	duration := time.Since(startTime)
 
 	statusCode := codes.Unknown
-	if st, ok := status.FromError(err); ok {
+	if st, ok := status.FromError(err); ok { // extracting the status form the error
 		statusCode = st.Code()
 	}
 

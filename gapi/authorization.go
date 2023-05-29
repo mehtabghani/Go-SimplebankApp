@@ -25,7 +25,7 @@ func (server *Server) authorizeUser(ctx context.Context) (*token.Payload, error)
 		return nil, fmt.Errorf("missing authorization header")
 	}
 
-	// Token structure: <auth-type> <auth-date>
+	// Token structure: <auth-type> <auth-data>
 	// eg: Bearer adfa1223df...
 
 	authHeader := values[0]
