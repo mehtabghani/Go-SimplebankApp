@@ -114,6 +114,7 @@ func runGatewayServer(config util.Config, store db.Store) {
 	mux := http.NewServeMux()
 	mux.Handle("/", grpcMux)
 
+	// TODO: need to revisit lecture: Sec 4, 46
 	// statikFS, err := fs.New()
 	// if err != nil {
 	// 	log.Fatal().Err(err).Msg("cannot create statik fs")
