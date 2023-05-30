@@ -30,7 +30,6 @@ func (server *Server) CreateUser(ctx context.Context, req *pb.CreateUserRequest)
 
 	// user db transaction
 	// if redis fails we will roll back db changes
-
 	arg := db.CreateUserTxParams{
 		CreateUserParams: db.CreateUserParams{
 			Username:       req.GetUsername(),
